@@ -112,7 +112,7 @@ GROUP BY payment_method
 <br />
 <br />
 
-Q6.  What are the average, minimum, and maximum ratings for each category in each city? 
+Q5.  What are the average, minimum, and maximum ratings for each category in each city? 
 --List the city, average_rating, min_rating and max_rating 
 <br />
 
@@ -129,8 +129,28 @@ GROUP BY city,category
 ```
 <br />
 
-<img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/3a2b41f1-9f32-4a72-aa9e-85c270af157b" />
+
+
+Q6 What is total profit for each category, ranked from highest to lowest?
+-- total profit as  ( unit_price * quantity * profit_margin)
+
+<br />
+
+```sql
+
+SELECT 
+	category,
+	SUM(total) as total_revenue,
+	SUM(total * profit_margin) as profit 
+FROM walmart
+GROUP BY category 
+ORDER BY profit DESC 
 
 
 
+```
 
+<br />
+
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/040e000d-80cd-46fd-b012-f45faa9e4e4a" />
+<br />
