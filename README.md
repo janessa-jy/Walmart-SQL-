@@ -21,4 +21,27 @@ GROUP BY payment_method
 
 <img width="396" height="122" alt="image" src="https://github.com/user-attachments/assets/0a700029-ddf1-450e-aab4-990e0e4f485b" />
 
+<br />
+
+<br />
+
+Q2 Identify the Highest-Rated Category in Each Branch. Displaying branch, category and average rating
+
+```sql
+SELECT 
+	branch,
+	category,
+	AVG(rating) as avg_rating
+FROM walmart
+GROUP BY branch,category 
+Order by branch , avg_rating DESC
+```
+
+
+<br />
+
+<img width="398" height="516" alt="image" src="https://github.com/user-attachments/assets/9ea9d1eb-e56b-4ca5-a8ca-c38ade4f0680" />
+
+
+
 
