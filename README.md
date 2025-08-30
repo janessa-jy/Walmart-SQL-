@@ -31,16 +31,17 @@ Q2 Identify the Highest-Rated Category in Each Branch. Displaying branch, catego
 SELECT 
 	branch,
 	category,
-	AVG(rating) as avg_rating
+	AVG(rating) as avg_rating,
+	RANK() OVER(PARTITION BY branch ORDER BY AVG(rating) DESC) as rank
 FROM walmart
 GROUP BY branch,category 
-Order by branch , avg_rating DESC
 ```
 
 
 <br />
 
-<img width="398" height="516" alt="image" src="https://github.com/user-attachments/assets/9ea9d1eb-e56b-4ca5-a8ca-c38ade4f0680" />
+<img width="460" height="542" alt="image" src="https://github.com/user-attachments/assets/2d67ca04-e5cb-4c00-9e1b-825c4f54317f" />
+
 
 
 
