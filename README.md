@@ -15,6 +15,10 @@ SELECT
 	SUM(quantity) as no_qty_sold
 FROM walmart
 GROUP BY payment_method
+```
 
+<br />
+
+<img width="396" height="122" alt="image" src="https://github.com/user-attachments/assets/0a700029-ddf1-450e-aab4-990e0e4f485b" />
 
 
