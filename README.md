@@ -43,6 +43,24 @@ GROUP BY branch,category
 <img width="460" height="542" alt="image" src="https://github.com/user-attachments/assets/2d67ca04-e5cb-4c00-9e1b-825c4f54317f" />
 
 
+```SELECT * 
+FROM 
+(  SELECT 
+	branch,
+	category,
+	AVG(rating) as avg_rating,
+	RANK() OVER(PARTITION BY branch ORDER BY AVG(rating) DESC) as rank
+FROM walmart
+GROUP BY branch,category 
+
+)
+
+WHERE rank =1
+
+```
+<img width="458" height="322" alt="image" src="https://github.com/user-attachments/assets/e80b1937-3bc4-40e5-85cb-6ff909fa3bfb" />
+
+
 
 
 
