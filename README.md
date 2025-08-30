@@ -187,4 +187,31 @@ WHERE rank = 1
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/1575bd91-88ad-43da-92e7-17b2b5de886b" />
 
 
+<br />
+<br />
+
+Q8 . How many transactions invoices occur in each shift (Morning, Afternoon, Evening) across branches?
+--::time → is PostgreSQL’s type casting operator. It converts the column time into the TIME data type (hh:mm:ss format).
+
+<br />
+
+```sql
+
+SELECT 
+	branch,
+CASE 
+		WHEN EXTRACT(HOUR FROM (time :: time)) < 12 THEN 'Morning'
+		WHEN EXTRACT(HOUR FROM (time :: time)) BETWEEN 12 AND 17 THEN 'Afternoon'
+		ELSE 'Evening'
+	END day_time,
+	COUNT(*)
+	
+FROM walmart
+GROUP By day_time,branch
+ORDER BY 1,3 DESC 
+
+```
+<br />
+<img width="400" height="600" alt="image" src="https://github.com/user-attachments/assets/4d28b2c3-7a58-4b16-8dc3-79ea64b5b545" />
+
 
