@@ -109,3 +109,28 @@ GROUP BY payment_method
 <img width="300" height="236" alt="image" src="https://github.com/user-attachments/assets/37f57c4e-ecf1-484c-9f47-679926f905e6" />
 
 
+<br />
+<br />
+
+Q6.  What are the average, minimum, and maximum ratings for each category in each city? 
+--List the city, average_rating, min_rating and max_rating 
+<br />
+
+```sql
+SELECT 
+	city,
+	category,
+	MIN(rating) as min_rating,
+	MAX(rating) as max_rating,
+	AVG(rating) as avg_rating
+FROM walmart
+GROUP BY city,category
+
+```
+<br />
+
+<img width="600" height="600" alt="image" src="https://github.com/user-attachments/assets/3a2b41f1-9f32-4a72-aa9e-85c270af157b" />
+
+
+
+
