@@ -42,6 +42,8 @@ GROUP BY branch,category
 
 <img width="460" height="542" alt="image" src="https://github.com/user-attachments/assets/2d67ca04-e5cb-4c00-9e1b-825c4f54317f" />
 
+<br />
+
 ```sql 
 SELECT * 
 FROM 
@@ -57,8 +59,10 @@ GROUP BY branch,category
 
 WHERE rank =1
 ```
+<br />
 <img width="458" height="322" alt="image" src="https://github.com/user-attachments/assets/e80b1937-3bc4-40e5-85cb-6ff909fa3bfb" />
 
+<br />
 <br />
 Q3 What is the busiest day of the week for each branch based on transaction volume?
 
@@ -84,5 +88,24 @@ WHERE rank = 1
 <br />
 
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/a21cf02d-54d8-483b-868e-63d08d3d1b74" />
+
+<br />
+<br />
+
+
+Q4 .How many items were sold through each payment method?
+<br />
+
+```sql
+
+SELECT 
+	payment_method,
+	SUM(quantity) as no_qty_sold
+FROM walmart
+GROUP BY payment_method
+
+```
+<br />
+<img width="300" height="236" alt="image" src="https://github.com/user-attachments/assets/37f57c4e-ecf1-484c-9f47-679926f905e6" />
 
 
