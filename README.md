@@ -59,7 +59,30 @@ WHERE rank =1
 ```
 <img width="458" height="322" alt="image" src="https://github.com/user-attachments/assets/e80b1937-3bc4-40e5-85cb-6ff909fa3bfb" />
 
+<br />
+Q3 What is the busiest day of the week for each branch based on transaction volume?
+
+<br />
+
+```sql
+
+SELECT * 
+FROM
+(
+SELECT 
+	branch,
+	TO_CHAR(TO_DATE(date,'DD/MM/YY'),'Day') as day_name,
+	COUNT(*) as no_transactions,
+	RANK() OVER (PARTITION BY branch ORDER BY COUNT(*) DESC ) as rank
+FROM walmart 
+GROUP BY branch, day_name
+)
+WHERE rank = 1
+```
 
 
+<br />
+
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/a21cf02d-54d8-483b-868e-63d08d3d1b74" />
 
 
