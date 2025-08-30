@@ -165,19 +165,26 @@ Q7. What is the most frequently used payment method in each branch?
 
 ```sql
 
-
-SELECT 
+WITH cte 
+AS
+(SELECT 
 	branch,
 	payment_method,
 	COUNT(*) as total_trans,
 	RANK() OVER(PARTITION BY branch ORDER BY COUNT(*) DESC) as rank 
 FROM walmart
 GROUP BY branch, payment_method
+)
+
+SELECT * 
+FROM cte 
+WHERE rank = 1
 
 ```
 <br />
 
 
-<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/697a2490-a283-4ee6-afb1-290adcfc1bf4" />
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/1575bd91-88ad-43da-92e7-17b2b5de886b" />
+
 
 
