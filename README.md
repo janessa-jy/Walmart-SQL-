@@ -154,3 +154,30 @@ ORDER BY profit DESC
 
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/040e000d-80cd-46fd-b012-f45faa9e4e4a" />
 <br />
+
+
+
+
+
+Q7. What is the most frequently used payment method in each branch?
+
+<br />
+
+```sql
+
+
+SELECT 
+	branch,
+	payment_method,
+	COUNT(*) as total_trans,
+	RANK() OVER(PARTITION BY branch ORDER BY COUNT(*) DESC) as rank 
+FROM walmart
+GROUP BY branch, payment_method
+
+```
+<br />
+
+
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/697a2490-a283-4ee6-afb1-290adcfc1bf4" />
+
+
