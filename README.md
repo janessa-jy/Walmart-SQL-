@@ -220,4 +220,57 @@ ORDER BY 1,3 DESC
 <br />
 <img width="400" height="600" alt="image" src="https://github.com/user-attachments/assets/4d28b2c3-7a58-4b16-8dc3-79ea64b5b545" />
 
+<br />
+<br />
+
+Q9. Which branches experienced the largest decrease in revenue compared to the previous year?
+--rdr = last_rev - cr_rev / ls_rev*100
+<br />
+
+```sql
+
+-- 2022 sales 
+
+WITH revenue_2022
+AS
+(
+	SELECT 
+		branch, 
+		SUM(total) as revenue 
+	FROM walmart 
+	WHERE EXTRACT (YEAR FROM TO_DATE(date,'DD/MM/YY')) = 2022
+	GROUP BY branch
+), 
+-- 2023 sales
+revenue_2023
+AS
+(
+	SELECT 
+		branch, 
+		SUM(total) as revenue 
+	FROM walmart 
+	WHERE EXTRACT (YEAR FROM TO_DATE(date,'DD/MM/YY')) = 2023
+	GROUP BY branch
+)
+
+SELECT 
+	lasts.branch,
+	lasts.revenue as last_year_revenue,
+	currents.revenue as cr_year_revenue,
+	ROUND((lasts.revenue - currents.revenue)::numeric/lasts.revenue::numeric*100,2) as rev_dec_ratio
+	
+FROM revenue_2022 as lasts
+JOIN 
+revenue_2023 as currents
+ON lasts.branch = currents.branch
+
+WHERE lasts.revenue > currents.revenue
+ORDER BY rev_dec_ratio
+Limit 5
+
+```
+<br />
+
+<img width="514" height="178" alt="image" src="https://github.com/user-attachments/assets/ba173221-ba37-4313-bd38-734702446fb6" />
+<br />
 
