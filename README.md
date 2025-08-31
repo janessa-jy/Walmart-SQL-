@@ -1,8 +1,9 @@
 # Walmart-SQL 10K Data
 
 ## Overview
+<img width="131" height="28" alt="image" src="https://github.com/user-attachments/assets/5cb31285-15d0-4c73-b566-67c8a177cc8d" />
 
-This project analyzes Walmart sales data to answer various business-related questions. SQL queries are used to extract insights regarding payment method, revenue generation, customer preferences, and profit generation
+This project analyzes Walmart sales data to answer various business-related questions. SQL queries are used to extract insights regarding payment method, revenue generation, customer preferences, and profit generation 
 
 
 <br />
