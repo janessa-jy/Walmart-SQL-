@@ -1,4 +1,4 @@
-# Walmart-SQL
+# Walmart-SQL 10K Data
 
 ## Overview
 
